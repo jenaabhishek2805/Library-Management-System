@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Library Management System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html" style="color: #e0e0e0;">Library Management System</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #e0e0e0;" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #e0e0e0;" href="admin-login.html">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container text-center">
+        <h2>Admin Dashboard</h2>
+        
+        <!-- Student Details Card -->
+        <div class="card mb-4">
+            <div class="card-header">Student Details</div>
+            <div class="card-body">
+                <form id="studentDetailsForm">
+                    <div class="form-group">
+                        <label for="studentRegNumber">Enter Registration Number:</label>
+                        <input type="text" class="form-control" id="studentRegNumber" required>
+                    </div>
+                    <button type="submit" class="btn btn-lg">Get Details</button>
+                </form>
+                <div id="studentDetails" class="hidden mt-3" style="display: none;">
+                    <p>Registration Number: 2341011115</p>
+                    <p>Name: ABHISHEK KUMAR</p>
+                    <div class="card mt-3">
+                        <div class="card-header">Books Issued</div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Book Name: JAVA, Issue Date: 01-Jan-2023, Due Date: 15-Jan-2023, Fines: RS. 0</li>
+                            </ul>
+                            <button class="btn btn-sm">Reissue Book</button>
+                            <button class="btn btn-sm">Adjust Fine</button>
+                            <button class="btn btn-sm">Return Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Issue Book Card -->
+        <div class="card mb-4">
+            <div class="card-header">Issue Book</div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="regNumber">Registration Number:</label>
+                        <input type="text" class="form-control" id="regNumber" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookId">Book ID:</label>
+                        <input type="text" class="form-control" id="bookId" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="issueDate">Issue Date:</label>
+                        <input type="date" class="form-control" id="issueDate" required>
+                    </div>
+                    <button type="submit" class="btn btn-lg">Issue Book</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Available Books Card -->
+        <div class="card mb-4">
+            <div class="card-header">Available Books</div>
+            <div class="card-body">
+                <ul>
+                    <li>Book Name: CSW, Status: Available, <button class="btn btn-sm"> Mark as Issued</button></li><br>
+                    <li>Book Name: JAVA, Status: Issued, <button class="btn btn-sm"> Mark as Available</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#studentDetailsForm').on('submit', function(event) {
+                event.preventDefault(); // Prevent the form from submitting normally
+                $('#studentDetails').show(); // Show the student details section
+            });
+        });
+    </script>
+</body>
+</html>
